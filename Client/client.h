@@ -8,7 +8,8 @@
 #include <qbytearray.h>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class Client; }
+namespace Ui {
+    class Client; }
 QT_END_NAMESPACE
 
 class Client : public QWidget
