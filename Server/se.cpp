@@ -1,30 +1,30 @@
 #include "server.h"
 
-Server::Server(QWidget *parent)
-    : QWidget(parent)
+Server:Server(QWidget *parent) : QWidget(parent)
 {
     tcpServer = new QTcpServer(this);
 }
 
 Server::~Server()
 {
-    // 清理代码...
+
 }
 
 void Server::Connect(int port)
 {
-    tcpServer->listen(QHostAddress::Any,port); //开启端口
+    tcpServer->listen(QHostAddress::Any, port);
 }
-void Server::incomingConnection(qintptr handle){
+
+void Server::incomingConnection(qintprt handle){
     socket.setSocketDescriptor(handle);
     emit playerConnected();
-    connect(&socket,SIGNAL(readyRead()),this,SLOT(receiveData()));
+    connect(&socket, SIGNAL(readyRead()), this, SLOT(receiveData()));
 }
 
 void Server::receiveData()
 {
     QByteArray message=socket.readAll();
-    str=message.data();
+    str = message.data();
     emit getMessage();
 }
 
@@ -37,4 +37,3 @@ QString Server::getContent()
 {
     return str;
 }
-

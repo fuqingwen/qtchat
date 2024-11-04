@@ -1,11 +1,10 @@
 #include "widget.h"
 #include "ui_widget.h"
 
-Widget::Widget(QWidget *parent)
-    : QWidget(parent), ui(new Ui::Widget)
+Widget::Widget(QWidget *parent): QWidget(parent), ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    this->setWindowTitle("DuckChat服务端");
+    this->setWindowTitle("Chat客户端")；
     connect(&server, SIGNAL(playerConnected()), this, SLOT(playerConnected()));
     connect(&server, SIGNAL(getMessage()), this, SLOT(getMessage()));
     connect(ui->send, SIGNAL(returnPressed()), this, SLOT(on_pushButton_clicked()));
@@ -20,8 +19,7 @@ Widget::~Widget()
 
 void Widget::playerConnected()
 {
-
-    text.append("一只鸭子加入聊天室...\n");
+    text.append("一只鸭子加入聊天...\n");
     ui->textEdit->setText(text);
 }
 
@@ -41,7 +39,7 @@ void Widget::on_pushButton_clicked()
 
 void Widget::on_startButton_clicked()
 {
-    if (ui->port->text().toInt() / 1000 > 1)
+    if (ui->port->text().toInt() / 1000 >1)
     {
         server.Connect(ui->port->text().toInt());
         text = QString("PORT:" + ui->port->text() + "\n聊天室创建成功...\n");
@@ -49,13 +47,14 @@ void Widget::on_startButton_clicked()
     }
     else
     {
-        text = QString("端口号不正确\n");
+        text = QString("端口号不正确\n")；
         ui->textEdit->setText(text);
     }
     ui->nameEdit->setFocus();
 }
 
-void Widget::next()
+void widget::next()
 {
     ui->send->setFocus();
 }
+

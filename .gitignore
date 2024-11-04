@@ -1,32 +1,68 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
+# Ignore object files, archives, and dynamic libraries
 *.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
 *.a
-*.lib
+*.so
+*.dll
+*.dylib
 
-# Executables
+# Ignore executable files
 *.exe
 *.out
-*.app
+
+# Ignore build directories
+/build/
+/bin/
+/debug/
+/release/
+/cmake-build-debug/
+
+# Ignore CMake generated files
+CMakeCache.txt
+CMakeFiles/
+/cmake_install.cmake
+Makefile
+install_manifest.txt
+
+# Ignore Code::Blocks files
+*.cbp
+*.depend
+*.layout
+*.layout*
+*.depend*
+
+# Ignore Qt Creator files
+*.pro.user
+*.qmake.stash
+
+# Ignore Visual Studio files
+*.vcxproj*
+*.sln
+*.vcproj*
+*.ncb
+*.suo
+*.user
+*.userosscache
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+
+# Ignore Xcode files
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.xccheckout
+*.xcworkspace
+*.xcuserstate
+
+# Ignore CLion files
+.idea/
+*.iml
+
+# Ignore other files
+*~
+*.swp
+.DS_Store
+Thumbs.db

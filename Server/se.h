@@ -6,17 +6,17 @@
 #include <QTcpSocket>
 #include <QHostAddress>
 
-class Server : public QWidget
+class Server:public QWidget
 {
     Q_OBJECT
 
 public:
     explicit Server(QWidget *parent = nullptr);
     ~Server();
-    
+
     void Connect(int port);
     void sendData(QString text);
-    QString getContent();
+    QString getConnect();
 
 signals:
     void playerConnected();
@@ -24,12 +24,13 @@ signals:
 
 private slots:
     void receiveData();
-    void incomingConnection(qintptr handle);
+    void getMessage();
 
 private:
     QTcpServer *tcpServer;
     QTcpSocket socket;
     QString str;
-};
 
-#endif // SERVER_H
+}
+
+#endi
