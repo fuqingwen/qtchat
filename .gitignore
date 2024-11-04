@@ -10,11 +10,11 @@
 *.out
 
 # Ignore build directories
-/build/
+build/
 /bin/
 /debug/
 /release/
-/cmake-build-debug/
+cmake-build-debug/
 
 # Ignore CMake generated files
 CMakeCache.txt
