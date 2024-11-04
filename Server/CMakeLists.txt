@@ -23,7 +23,6 @@ set(PROJECT_SOURCES
         server.h
         Resource.qrc
         Images/duckicon.rc
-        ../Client/main.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
