@@ -16,44 +16,45 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Network)
 # 包含所有源文件
 set(PROJECT_SOURCES
         main.cpp
-        ui_client.h
+        client.ui
         client.cpp
         client.h
+        ui_client.h
         Resource.qrc
         Images/duckicon.rc
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+if (${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(DuckChat
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
+            MANUAL_FINALIZATION
+            ${PROJECT_SOURCES}
     )
-else()
-    if(ANDROID)
+else ()
+    if (ANDROID)
         add_library(DuckChat SHARED
-            ${PROJECT_SOURCES}
+                ${PROJECT_SOURCES}
         )
-    else()
+    else ()
         add_executable(DuckChat
-            ${PROJECT_SOURCES}
+                ${PROJECT_SOURCES}
         )
-    endif()
-endif()
+    endif ()
+endif ()
 
-target_link_libraries(DuckChat PRIVATE 
-    Qt${QT_VERSION_MAJOR}::Widgets
-    Qt${QT_VERSION_MAJOR}::Network
+target_link_libraries(DuckChat PRIVATE
+        Qt${QT_VERSION_MAJOR}::Widgets
+        Qt${QT_VERSION_MAJOR}::Network
 )
 
 # 设置应用程序图标和其他属性
 set_target_properties(DuckChat PROPERTIES
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
-    MACOSX_BUNDLE_GUI_IDENTIFIER com.kevinwu.duckchat
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+        MACOSX_BUNDLE TRUE
+        WIN32_EXECUTABLE TRUE
+        MACOSX_BUNDLE_GUI_IDENTIFIER com.kevinwu.duckchat
+        MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+        MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
 )
 
-if(QT_VERSION_MAJOR EQUAL 6)
+if (QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(DuckChat)
-endif()
+endif ()
